@@ -14,9 +14,11 @@
         }
 
         body {
-            /* гифко */
-            background: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueXF3eHZsbmZ6Znd4Znd4Znd4Znd4Znd4Znd4Znd4Znd4Znd4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCBhbmRfaWQ9MA/3o7TKuylrX8kT7XhVS/giphy.gif') no-repeat center center fixed;
+            /* гифка с сайта */
+            background: url('https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyYW13amx2aml0anR3cjF4cHE5c2lra2VwbWRxcmtiZG5jZ2tnOHNobiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Xl0oVz3eb9mfu/giphy.gif') no-repeat center center fixed;
             background-size: cover;
+            
+            image-rendering: pixelated;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -25,15 +27,17 @@
         }
 
         .container {
-            width: 100%;
+            width: 90%;
             max-width: 400px;
             padding: 30px 20px;
             text-align: center;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(12px);
+            /* прост */
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
         }
 
         .avatar {
@@ -43,6 +47,7 @@
             margin-bottom: 10px;
             border: 3px solid #fff;
             box-shadow: 0 0 15px rgba(255,255,255,0.3);
+            object-fit: cover;
         }
 
         h1 {
@@ -50,6 +55,7 @@
             font-weight: 700;
             margin-bottom: 5px;
             letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .subtitle {
@@ -70,7 +76,7 @@
             display: flex;
             align-items: center;
             padding: 14px 20px;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.9);
             color: #1a1a1a;
             text-decoration: none;
             border-radius: 15px;
@@ -131,5 +137,8 @@
     </div>
 </div>
 
+	<p>Created by Fino.</p>
+	
 </body>
 </html>
+

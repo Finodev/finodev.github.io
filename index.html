@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finodev | Links</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Гифка с сакурой */
+            background: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueXF3eHZsbmZ6Znd4Znd4Znd4Znd4Znd4Znd4Znd4Znd4Znd4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCBhbmRfaWQ9MA/3o7TKuylrX8kT7XhVS/giphy.gif') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 3px solid #fff;
+            box-shadow: 0 0 15px rgba(255,255,255,0.3);
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            background: #ffffff;
+            box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+        }
+
+        .link-card i {
+            font-size: 22px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .link-text {
+            flex-grow: 1;
+            margin-left: 12px;
+            text-align: left;
+        }
+
+        .arrow {
+            font-size: 12px;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="https://github.com/Finodev.png" alt="Finodev" class="avatar">
+    
+    <h1>Finodev</h1>
+    <div class="subtitle">Developer & Gamer</div>
+
+    <div class="links">
+        <a href="https://github.com/Finodev" target="_blank" class="link-card">
+            <i class="fab fa-github"></i>
+            <span class="link-text">Мой GitHub</span>
+            <i class="fas fa-chevron-right arrow"></i>
+        </a>
+
+        <a href="https://t.me/finodev" target="_blank" class="link-card">
+            <i class="fab fa-telegram"></i>
+            <span class="link-text">Мой Telegram</span>
+            <i class="fas fa-chevron-right arrow"></i>
+        </a>
+
+        <a href="https://open.spotify.com/user/31lowi73p7ihcusslukxczxjyyqa?si=XT8xJkeSShqkEATu1RqgJg_" target="_blank" class="link-card">
+            <i class="fab fa-spotify" style="color: #1DB954;"></i>
+            <span class="link-text">Мой Spotify</span>
+            <i class="fas fa-chevron-right arrow"></i>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

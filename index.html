@@ -14,47 +14,47 @@
         }
 
         body {
-            /* гифка с сайта */
             background: url('https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyYW13amx2aml0anR3cjF4cHE5c2lra2VwbWRxcmtiZG5jZ2tnOHNobiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Xl0oVz3eb9mfu/giphy.gif') no-repeat center center fixed;
             background-size: cover;
-            
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
             image-rendering: pixelated;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             color: white;
+            padding: 20px;
         }
 
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 400px;
             padding: 30px 20px;
             text-align: center;
-            /* прост */
-            background: rgba(0, 0, 0, 0.55);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            margin-bottom: 20px;
         }
 
         .avatar {
             width: 110px;
             height: 110px;
             border-radius: 50%;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             border: 3px solid #fff;
-            box-shadow: 0 0 15px rgba(255,255,255,0.3);
             object-fit: cover;
         }
 
         h1 {
             font-size: 28px;
-            font-weight: 700;
             margin-bottom: 5px;
-            letter-spacing: 1px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
@@ -81,13 +81,12 @@
             text-decoration: none;
             border-radius: 15px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
 
         .link-card:hover {
             transform: translateY(-3px);
-            background: #ffffff;
-            box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+            background: #fff;
         }
 
         .link-card i {
@@ -102,9 +101,22 @@
             text-align: left;
         }
 
-        .arrow {
-            font-size: 12px;
-            opacity: 0.3;
+        .counter-section {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .counter-img {
+            height: 45px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            opacity: 0.8;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         }
     </style>
 </head>
@@ -112,7 +124,6 @@
 
 <div class="container">
     <img src="https://github.com/Finodev.png" alt="Finodev" class="avatar">
-    
     <h1>Finodev</h1>
     <div class="subtitle">Developer & Gamer</div>
 
@@ -120,25 +131,28 @@
         <a href="https://github.com/Finodev" target="_blank" class="link-card">
             <i class="fab fa-github"></i>
             <span class="link-text">Мой GitHub</span>
-            <i class="fas fa-chevron-right arrow"></i>
+            <i class="fas fa-chevron-right"></i>
         </a>
 
         <a href="https://t.me/finodev" target="_blank" class="link-card">
             <i class="fab fa-telegram"></i>
             <span class="link-text">Мой Telegram</span>
-            <i class="fas fa-chevron-right arrow"></i>
+            <i class="fas fa-chevron-right"></i>
         </a>
 
         <a href="https://open.spotify.com/user/31lowi73p7ihcusslukxczxjyyqa?si=XT8xJkeSShqkEATu1RqgJg_" target="_blank" class="link-card">
             <i class="fab fa-spotify" style="color: #1DB954;"></i>
             <span class="link-text">Мой Spotify</span>
-            <i class="fas fa-chevron-right arrow"></i>
+            <i class="fas fa-chevron-right"></i>
         </a>
     </div>
 </div>
 
-	<p>Created by Fino.</p>
-	
+<div class="counter-section">
+    <img class="counter-img" src="https://count.getloli.com/get/@finodev?theme=moebooru" alt="MoeCounter">
+    <div class="footer-text">Created by Fino</div>
+</div>
+
 </body>
 </html>
 

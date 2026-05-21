@@ -197,4 +197,3 @@ playBtn.addEventListener('click', () => setPlay(!playing));
 volSlider.addEventListener('input', () => {
     audio.volume = volSlider.value;
 });
-  

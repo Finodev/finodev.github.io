@@ -51,6 +51,11 @@
                     <span class="link-text">Spotify</span>
                     <i class="fas fa-chevron-right link-arrow"></i>
                 </a>
+                <a href="https://discord.com/users/955687874085392445" target="_blank" class="link-card discord" onclick="(function(){var a='discord://-/users/955687874085392445';var w='https://discord.com/users/955687874085392445';window.location=a;setTimeout(function(){window.open(w,'_blank')},1000);return false;})();return false;">
+                    <i class="fab fa-discord link-icon"></i>
+                    <span class="link-text">Discord</span>
+                    <i class="fas fa-chevron-right link-arrow"></i>
+                </a>
             </div>
             <div class="counter-section">
                 <img class="counter-img" src="https://count.getloli.com/get/@finodev?theme=moebooru" alt="MoeCounter">
@@ -62,8 +67,8 @@
                         <i class="fas fa-play" id="playIconMobile"></i>
                     </button>
                     <div class="player-info">
-                        <div class="player-title">Ты любишь танцевать</div>
-                        <div class="player-artist">CUPSIZE</div>
+                        <div class="player-title">Дядя полицейский</div>
+                        <div class="player-artist">koonki</div>
                     </div>
                     <div class="player-bars" id="barsMobile">
                         <div class="bar paused" style="--s:.4s"></div>
@@ -71,6 +76,7 @@
                         <div class="bar paused" style="--s:.5s;animation-delay:.05s"></div>
                         <div class="bar paused" style="--s:.75s;animation-delay:.15s"></div>
                     </div>
+                    <button class="player-next" style="background:none;border:none;color:var(--text-sub);cursor:pointer;font-size:11px;padding:4px;"><i class="fas fa-forward"></i></button>
                 </div>
                 <div class="player-bottom">
                     <span class="player-time" id="timeCurMobile">0:00</span>
@@ -88,11 +94,7 @@
 <!-- DESKTOP LAYOUT -->
 <div class="desktop-layout" id="desktopCard">
     <div class="desk-card">
-
-        <!-- TOP ROW -->
         <div class="desk-top">
-
-            <!-- LEFT: avatar + badges -->
             <div class="desk-left">
                 <div class="avatar-wrap">
                     <div class="avatar-ring"></div>
@@ -109,11 +111,7 @@
                     <img class="counter-img" src="https://count.getloli.com/get/@finodev?theme=moebooru" alt="MoeCounter">
                 </div>
             </div>
-
-            <!-- DIVIDER -->
             <div class="desk-vdivider"></div>
-
-            <!-- RIGHT: links -->
             <div class="desk-right">
                 <a href="https://open.spotify.com/user/31lowi73p7ihcusslukxczxjyyqa" target="_blank" class="link-card spotify desk-link">
                     <i class="fab fa-spotify link-icon"></i>
@@ -130,18 +128,21 @@
                     <span class="link-text">GitHub</span>
                     <i class="fas fa-chevron-right link-arrow"></i>
                 </a>
+                <a href="https://discord.com/users/955687874085392445" target="_blank" class="link-card discord desk-link" onclick="(function(){var a='discord://-/users/955687874085392445';var w='https://discord.com/users/955687874085392445';window.location=a;setTimeout(function(){window.open(w,'_blank')},1000);return false;})();return false;">
+                    <i class="fab fa-discord link-icon"></i>
+                    <span class="link-text">Discord</span>
+                    <i class="fas fa-chevron-right link-arrow"></i>
+                </a>
             </div>
         </div>
-
-        <!-- BOTTOM: player -->
         <div class="desk-hdivider"></div>
         <div class="desk-bottom">
             <button class="player-btn" id="playBtnDesk">
                 <i class="fas fa-play" id="playIconDesk"></i>
             </button>
             <div class="player-info" style="min-width:120px;max-width:160px;">
-                <div class="player-title">Ты любишь танцевать</div>
-                <div class="player-artist">CUPSIZE</div>
+                <div class="player-title">Дядя полицейский</div>
+                <div class="player-artist">koonki</div>
             </div>
             <div class="player-bars" id="barsDesk">
                 <div class="bar paused" style="--s:.4s"></div>
@@ -149,6 +150,7 @@
                 <div class="bar paused" style="--s:.5s;animation-delay:.05s"></div>
                 <div class="bar paused" style="--s:.75s;animation-delay:.15s"></div>
             </div>
+            <button class="player-next" style="background:none;border:none;color:var(--text-sub);cursor:pointer;font-size:11px;padding:4px;"><i class="fas fa-forward"></i></button>
             <span class="player-time" id="timeCurDesk">0:00</span>
             <div class="progress-wrap" id="progressWrapDesk">
                 <div class="progress-fill" id="progressFillDesk"></div>
@@ -156,7 +158,6 @@
             <span class="player-time" id="timeDurDesk">0:00</span>
             <input type="range" class="player-vol" id="volSliderDesk" min="0" max="1" step="0.05" value="0.5">
         </div>
-
     </div>
 </div>
 

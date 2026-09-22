@@ -84,7 +84,7 @@ if (!isTouch) {
 
 // ──  плеер ──
 const TRACKS = [
-    { title: 'День рождения', artist: 'CUPSIZE', url: '...ВЬАТОАЛАЬАЬЛАЛАОВ' },
+    { title: 'de jure', artist: 'королевский XVII', url: 'https://raw.githubusercontent.com/Finodev/finodev.github.io/main/2_5267312930780656089.mp3' },
 ];
 
 let currentTrack = 0;

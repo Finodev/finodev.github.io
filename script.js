@@ -10,13 +10,13 @@ themeBtn.addEventListener('click', () => {
     themeBtn.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
 });
 
-// ── канва с точками на фоне ──
+// ──  точки на фоне ──
 (function () {
     const canvas = document.getElementById('bgCanvas');
     const ctx = canvas.getContext('2d');
     let W, H, dots = [];
     const N = 70, DIST = 130;
-    // мятные оттенки для точек и линий между ними
+    // минт оттенки
     const COLORS = ['#b6f7dd', '#4fd9ae', '#1fb894'];
     function resize() { W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
     resize(); window.addEventListener('resize', resize);
@@ -36,7 +36,7 @@ themeBtn.addEventListener('click', () => {
     draw();
 })();
 
-// ── наклон карточки за курсором ──
+// ── наклон карточки за курсором тест ──
 const cardEl = document.querySelector('.card');
 const isTouch = window.matchMedia('(hover: none)').matches;
 if (!isTouch && cardEl) {
@@ -59,7 +59,7 @@ function createParticles(x,y){for(let i=0;i<8;i++){const p=document.createElemen
 document.addEventListener('click', e=>createParticles(e.clientX,e.clientY));
 document.addEventListener('touchstart', e=>createParticles(e.touches[0].clientX,e.touches[0].clientY),{passive:true});
 
-// ── шлейф за курсором ──
+// ── партинклы ──
 if (!isTouch) {
     let lastX = 0, lastY = 0;
     const TRAIL_COLORS = ['#b6f7dd', '#4fd9ae', '#1fb894'];
@@ -82,10 +82,9 @@ if (!isTouch) {
     });
 }
 
-// ── плейлист плеера ──
-// ссылку на файл вставить сюда (raw-ссылка с гитхаба на mp3)
+// ──  плеер ──
 const TRACKS = [
-    { title: 'День рождения', artist: 'CUPSIZE', url: 'ВСТАВЬ_СЮДА_RAW_ССЫЛКУ.mp3' },
+    { title: 'День рождения', artist: 'CUPSIZE', url: '...ВЬАТОАЛАЬАЬЛАЛАОВ' },
 ];
 
 let currentTrack = 0;
@@ -111,7 +110,7 @@ function loadTrack(index) {
     if (playing) audio.play().catch(()=>{});
 }
 
-// авто следующий трек
+// щас не используется
 audio.addEventListener('ended', () => {
     loadTrack((currentTrack + 1) % TRACKS.length);
 });
@@ -159,7 +158,7 @@ audio.addEventListener('loadedmetadata', () => {
     if(tdd) tdd.textContent = dur;
 });
 
-// клик по прогресс-бару — перемотка
+// ...
 ['progressWrapMobile','progressWrapDesk'].forEach(id => {
     const w = document.getElementById(id);
     if(w) w.addEventListener('click', e => {

@@ -10,13 +10,14 @@ themeBtn.addEventListener('click', () => {
     themeBtn.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
 });
 
-// ── канва ──
+// ── канва с точками на фоне ──
 (function () {
     const canvas = document.getElementById('bgCanvas');
     const ctx = canvas.getContext('2d');
     let W, H, dots = [];
     const N = 70, DIST = 130;
-    const COLORS = ['#f0a8d0', '#c4b5fd', '#7dd3fc'];
+    // мятные оттенки для точек и линий между ними
+    const COLORS = ['#b6f7dd', '#4fd9ae', '#1fb894'];
     function resize() { W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
     resize(); window.addEventListener('resize', resize);
     for (let i = 0; i < N; i++) dots.push({ x: Math.random()*W, y: Math.random()*H, vx:(Math.random()-.5)*.4, vy:(Math.random()-.5)*.4, r:Math.random()<.3?2:1, c:COLORS[Math.floor(Math.random()*COLORS.length)], o:Math.random()*.4+.15 });
@@ -24,17 +25,18 @@ themeBtn.addEventListener('click', () => {
         ctx.clearRect(0,0,W,H);
         const isLight = html.classList.contains('light');
         const g = ctx.createLinearGradient(0,0,W,H);
-        if (isLight) { g.addColorStop(0,'#e8e4f5'); g.addColorStop(.5,'#f0f0f8'); g.addColorStop(1,'#e4f0ff'); }
-        else { g.addColorStop(0,'#0d0420'); g.addColorStop(.5,'#060612'); g.addColorStop(1,'#00111f'); }
+        // фон под точками отдельно для светлой и тёмной темы
+        if (isLight) { g.addColorStop(0,'#e6faf3'); g.addColorStop(.5,'#f1fbf8'); g.addColorStop(1,'#e3f7ef'); }
+        else { g.addColorStop(0,'#031a14'); g.addColorStop(.5,'#04120e'); g.addColorStop(1,'#001a15'); }
         ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
         dots.forEach(d => { d.x+=d.vx; d.y+=d.vy; if(d.x<0||d.x>W)d.vx*=-1; if(d.y<0||d.y>H)d.vy*=-1; ctx.beginPath(); ctx.arc(d.x,d.y,d.r,0,Math.PI*2); ctx.fillStyle=d.c; ctx.globalAlpha=d.o; ctx.fill(); });
-        for(let i=0;i<dots.length;i++){for(let j=i+1;j<dots.length;j++){const dx=dots[i].x-dots[j].x,dy=dots[i].y-dots[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<DIST){ctx.beginPath();ctx.moveTo(dots[i].x,dots[i].y);ctx.lineTo(dots[j].x,dots[j].y);ctx.strokeStyle='rgba(196,181,253,'+(1-dist/DIST)*.12+')';ctx.globalAlpha=1;ctx.lineWidth=.5;ctx.stroke();}}}
+        for(let i=0;i<dots.length;i++){for(let j=i+1;j<dots.length;j++){const dx=dots[i].x-dots[j].x,dy=dots[i].y-dots[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<DIST){ctx.beginPath();ctx.moveTo(dots[i].x,dots[i].y);ctx.lineTo(dots[j].x,dots[j].y);ctx.strokeStyle='rgba(79,217,174,'+(1-dist/DIST)*.14+')';ctx.globalAlpha=1;ctx.lineWidth=.5;ctx.stroke();}}}
         ctx.globalAlpha=1; requestAnimationFrame(draw);
     }
     draw();
 })();
 
-// ── эффект клика ──
+// ── наклон карточки за курсором ──
 const cardEl = document.querySelector('.card');
 const isTouch = window.matchMedia('(hover: none)').matches;
 if (!isTouch && cardEl) {
@@ -51,16 +53,16 @@ if (!isTouch && cardEl) {
     document.addEventListener('mouseenter', () => { cardEl.style.transition='transform .1s ease'; });
 }
 
-// ── партиклы клк ──
-const PCOLS = ['#f0a8d0','#c4b5fd','#7dd3fc'];
+// ── частицы при клике ──
+const PCOLS = ['#b6f7dd','#4fd9ae','#1fb894'];
 function createParticles(x,y){for(let i=0;i<8;i++){const p=document.createElement('div');p.className='click-particle';const size=Math.random()*8+4,angle=Math.random()*Math.PI*2,vel=Math.random()*150+100;p.style.cssText=`left:${x}px;top:${y}px;width:${size}px;height:${size}px;background:${PCOLS[Math.floor(Math.random()*PCOLS.length)]};--tx:${Math.cos(angle)*vel}px;--ty:${Math.sin(angle)*vel}px;`;document.body.appendChild(p);setTimeout(()=>p.remove(),800);}}
 document.addEventListener('click', e=>createParticles(e.clientX,e.clientY));
 document.addEventListener('touchstart', e=>createParticles(e.touches[0].clientX,e.touches[0].clientY),{passive:true});
 
-// ── курсор тест ──
+// ── шлейф за курсором ──
 if (!isTouch) {
     let lastX = 0, lastY = 0;
-    const TRAIL_COLORS = ['#f0a8d0', '#c4b5fd', '#7dd3fc'];
+    const TRAIL_COLORS = ['#b6f7dd', '#4fd9ae', '#1fb894'];
     document.addEventListener('mousemove', e => {
         const dx = e.clientX - lastX, dy = e.clientY - lastY;
         const speed = Math.sqrt(dx*dx + dy*dy);
@@ -80,9 +82,11 @@ if (!isTouch) {
     });
 }
 
-// ── ... ──
+// ── плейлист плеера ──
+// ссылку на файл вставить сюда (raw-ссылка с гитхаба на mp3)
 const TRACKS = [
-    { title: 'День Рождения', artist: 'CUPSIZE', url: 'https://raw.githubusercontent.com/Finodev/...' },
+    { title: 'День рождения', artist: 'CUPSIZE', url: 'ВСТАВЬ_СЮДА_RAW_ССЫЛКУ.mp3' },
+];
 
 let currentTrack = 0;
 let playing = false;
@@ -155,7 +159,7 @@ audio.addEventListener('loadedmetadata', () => {
     if(tdd) tdd.textContent = dur;
 });
 
-// клик по прогрессу
+// клик по прогресс-бару — перемотка
 ['progressWrapMobile','progressWrapDesk'].forEach(id => {
     const w = document.getElementById(id);
     if(w) w.addEventListener('click', e => {
@@ -170,13 +174,13 @@ audio.addEventListener('loadedmetadata', () => {
     if(s) s.addEventListener('input', () => { audio.volume = s.value; });
 });
 
-// -&--------_____&;@5#+$6?+1488 кнопки
+// кнопки плей/пауза
 const pbm = document.getElementById('playBtnMobile');
 const pbd = document.getElementById('playBtnDesk');
 if(pbm) pbm.addEventListener('click', () => setPlay(!playing));
 if(pbd) pbd.addEventListener('click', () => setPlay(!playing));
 
-// кнопки next 
+// кнопки next
 document.querySelectorAll('.player-next').forEach(btn => {
     btn.addEventListener('click', () => {
         loadTrack((currentTrack + 1) % TRACKS.length);

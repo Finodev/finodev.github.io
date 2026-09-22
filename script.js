@@ -1,4 +1,4 @@
-// ── THEME ──
+// ── тема ──
 const themeBtn = document.getElementById('themeBtn');
 const html = document.documentElement;
 const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -10,7 +10,7 @@ themeBtn.addEventListener('click', () => {
     themeBtn.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
 });
 
-// ── CANVAS BG ──
+// ── канва ──
 (function () {
     const canvas = document.getElementById('bgCanvas');
     const ctx = canvas.getContext('2d');
@@ -34,7 +34,7 @@ themeBtn.addEventListener('click', () => {
     draw();
 })();
 
-// ── PARALLAX ──
+// ── эффект клика ──
 const cardEl = document.querySelector('.card');
 const isTouch = window.matchMedia('(hover: none)').matches;
 if (!isTouch && cardEl) {
@@ -51,13 +51,13 @@ if (!isTouch && cardEl) {
     document.addEventListener('mouseenter', () => { cardEl.style.transition='transform .1s ease'; });
 }
 
-// ── CLICK PARTICLES ──
+// ── партиклы клк ──
 const PCOLS = ['#f0a8d0','#c4b5fd','#7dd3fc'];
 function createParticles(x,y){for(let i=0;i<8;i++){const p=document.createElement('div');p.className='click-particle';const size=Math.random()*8+4,angle=Math.random()*Math.PI*2,vel=Math.random()*150+100;p.style.cssText=`left:${x}px;top:${y}px;width:${size}px;height:${size}px;background:${PCOLS[Math.floor(Math.random()*PCOLS.length)]};--tx:${Math.cos(angle)*vel}px;--ty:${Math.sin(angle)*vel}px;`;document.body.appendChild(p);setTimeout(()=>p.remove(),800);}}
 document.addEventListener('click', e=>createParticles(e.clientX,e.clientY));
 document.addEventListener('touchstart', e=>createParticles(e.touches[0].clientX,e.touches[0].clientY),{passive:true});
 
-// ── CURSOR TRAIL ──
+// ── курсор тест ──
 if (!isTouch) {
     let lastX = 0, lastY = 0;
     const TRAIL_COLORS = ['#f0a8d0', '#c4b5fd', '#7dd3fc'];
@@ -80,11 +80,9 @@ if (!isTouch) {
     });
 }
 
-// ── AUDIO + ТРЕКИ ──
+// ── ... ──
 const TRACKS = [
-    { title: 'Дядя полицейский', artist: 'koonki', url: 'https://raw.githubusercontent.com/Finodev/finodev.github.io/main/koonki_-_dyadya_policejjskijj_81052743.mp3' },
-    { title: 'Ты любишь танцевать', artist: 'CUPSIZE', url: 'https://raw.githubusercontent.com/Finodev/finodev.github.io/main/2_5238062214925008099%20(2).mp3' }
-];
+    { title: 'День Рождения', artist: 'CUPSIZE', url: 'https://raw.githubusercontent.com/Finodev/...' },
 
 let currentTrack = 0;
 let playing = false;
@@ -172,13 +170,13 @@ audio.addEventListener('loadedmetadata', () => {
     if(s) s.addEventListener('input', () => { audio.volume = s.value; });
 });
 
-// play кнопки
+// -&--------_____&;@5#+$6?+1488 кнопки
 const pbm = document.getElementById('playBtnMobile');
 const pbd = document.getElementById('playBtnDesk');
 if(pbm) pbm.addEventListener('click', () => setPlay(!playing));
 if(pbd) pbd.addEventListener('click', () => setPlay(!playing));
 
-// кнопки next (три точки)
+// кнопки next 
 document.querySelectorAll('.player-next').forEach(btn => {
     btn.addEventListener('click', () => {
         loadTrack((currentTrack + 1) % TRACKS.length);
